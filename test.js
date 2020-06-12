@@ -1,3 +1,5 @@
+let predictedThirtyAges = [];
+
 navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
@@ -5,7 +7,8 @@ Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'), // model for face detect
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'), // model for detecting differnet parts of face
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'), // model for detecting where the face is
-  faceapi.nets.faceExpressionNet.loadFromUri('/models') // model for detect expressions
+  faceapi.nets.faceExpressionNet.loadFromUri('/models'), // model for detect expressions
+  faceapi.nets.ageGenderNet.loadFromUri('/models') // model for detect expressions
 ])
 if (navigator.getUserMedia) {
    navigator.getUserMedia({  video: { } },
@@ -21,14 +24,29 @@ if (navigator.getUserMedia) {
            setInterval( async () =>{
              const detections = await faceapi.detectAllFaces(video,
                new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
-               .withFaceExpressions()
-               console.log(detections)
+               .withFaceExpressions().withAgeAndGender()
+               //console.log(detections)
                const resizedDetections = faceapi.resizeResults(detections, displaySize)
                canvas.getContext('2d').clearRect(0, 0, canvas.width , canvas.height) // to clear previous rect
                faceapi.draw.drawDetections(canvas , resizedDetections) // to drow the canvas and resize
                faceapi.draw.drawFaceLandmarks( canvas , resizedDetections)
                faceapi.draw.drawFaceExpressions(canvas , resizedDetections)
                
+               // now add age to the canvas
+               //console.log(resizedDetections);
+               const age = resizedDetections[0].age;
+               
+               const age_mean = Math.round(mean_of_ages(age));
+               const bottomRight= {
+                  x: resizedDetections[0].detection.box.bottomRight.x -50,
+                  y: resizedDetections[0].detection.box.bottomRight.y
+   
+               }
+               
+               new faceapi.draw.DrawTextField(
+                  [`${age_mean} years`],
+                  bottomRight
+               ).draw(canvas)
             }, 100 // acync function
          
            ) // can use multiple times
@@ -40,4 +58,11 @@ if (navigator.getUserMedia) {
    );
 } else {
    //console.log("getUserMedia not supported");
+}
+
+function mean_of_ages(age){
+   predictedThirtyAges = [age].concat(predictedThirtyAges).slice(0 , 50)
+   const mean = 
+   predictedThirtyAges.reduce((total , a) => total+a)/ predictedThirtyAges.length;
+   return mean;
 }
