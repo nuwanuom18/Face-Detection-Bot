@@ -10,19 +10,28 @@ Promise.all([
   faceapi.nets.faceExpressionNet.loadFromUri('/models'), // model for detect expressions
   faceapi.nets.ageGenderNet.loadFromUri('/models') // model for detect expressions
 ])
-<<<<<<< HEAD
+/*
+const btn1 = document.createElement('button')
+btn1.innerText = 'Hello'
+document.body.appendChild(btn1)*/
 
-=======
->>>>>>> dc42619d125e80eef6c233e454988631cbde52a6
+
 if (navigator.getUserMedia) {
    navigator.getUserMedia({  video: { } },
       function(stream) {
          var video = document.querySelector('video');
          video.srcObject = stream;
          video.onloadedmetadata = function(e) {
-           
+
+
+            var ele = document.getElementById('overlayv')
+
            const canvas = faceapi.createCanvasFromMedia(video) // to add things to the webcam video
+           
            document.body.append(canvas)
+           //ele.appendChild(canvas);
+
+
            const displaySize = { width: video.width, height:video.height}
            faceapi.matchDimensions(canvas , displaySize)// match canvas to display size
            setInterval( async () =>{
