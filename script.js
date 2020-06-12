@@ -26,7 +26,7 @@ video.addEventListener('play', () => {
     const detections = await faceapi.detectAllFaces(video,
       new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
       .withFaceExpressions()
-      console.log(detections)
+      //console.log(detections)
       const resizedDetections = faceapi.resizeResults(detections, displaySize)
       canvas.getContext('2d').clearRect(0, 0, canvas.width , canvas.height) // to clear previous rect
       faceapi.draw.drawDetections(canvas , resizedDetections) // to drow the canvas and resize
