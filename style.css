@@ -17,7 +17,12 @@ canvas{
 
 @media all and (max-width: 500px){
     video{
-        width: auto;
-        height: auto;
+        width: 360;
+        height: 280;
+    }
+    canvas{
+        width: 360;
+        height: 280;
+        
     }
 }
