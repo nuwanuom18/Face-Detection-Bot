@@ -16,9 +16,8 @@ canvas{
 }
 
 @media all and (max-width: 500px){
-
-}
-
-.videoObject{
-    padding-left: 20px;
+    video{
+        width: auto;
+        height: auto;
+    }
 }
