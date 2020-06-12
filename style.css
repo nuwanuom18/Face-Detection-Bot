@@ -6,8 +6,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: gray;
 }
 
 canvas{
     position: absolute;
+    border: 12px red;
+    
+}
+
+@media all and (max-width: 500px){
+
+}
+
+.videoObject{
+    padding-left: 20px;
 }
