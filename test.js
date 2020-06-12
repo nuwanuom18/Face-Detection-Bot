@@ -26,16 +26,17 @@ if (navigator.getUserMedia) {
                new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
                .withFaceExpressions().withAgeAndGender()
                //console.log(detections)
-               const resizedDetections = faceapi.resizeResults(detections, displaySize)
+               const resizedDetections = faceapi.resizeResults(detections, displaySize);
                canvas.getContext('2d').clearRect(0, 0, canvas.width , canvas.height) // to clear previous rect
                faceapi.draw.drawDetections(canvas , resizedDetections) // to drow the canvas and resize
                faceapi.draw.drawFaceLandmarks( canvas , resizedDetections)
                faceapi.draw.drawFaceExpressions(canvas , resizedDetections)
                
                // now add age to the canvas
-               //console.log(resizedDetections);
-               const age = resizedDetections[0].age;
-               
+               console.log(typeof resizedDetections[0]);
+               if (typeof resizedDetections[0] != 'undefined'){
+                  age = resizedDetections[0].age;
+                  
                const age_mean = Math.round(mean_of_ages(age));
                const bottomRight= {
                   x: resizedDetections[0].detection.box.bottomRight.x -50,
@@ -47,6 +48,9 @@ if (navigator.getUserMedia) {
                   [`${age_mean} years`],
                   bottomRight
                ).draw(canvas)
+               }
+               
+               
             }, 100 // acync function
          
            ) // can use multiple times
@@ -61,7 +65,7 @@ if (navigator.getUserMedia) {
 }
 
 function mean_of_ages(age){
-   predictedThirtyAges = [age].concat(predictedThirtyAges).slice(0 , 50)
+   predictedThirtyAges = [age].concat(predictedThirtyAges).slice(0 ,30)
    const mean = 
    predictedThirtyAges.reduce((total , a) => total+a)/ predictedThirtyAges.length;
    return mean;
