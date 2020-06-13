@@ -35,7 +35,7 @@ canvas{
 .btns{
     
     padding-top: 80;
-    float: left;
+    float: right;
 }
 video{
     top: 10%;
@@ -99,9 +99,10 @@ p{
 }
 
 .details{
-  width: 720;
-  padding-top: 50;
-    font-size: 15;
+    padding-top: 60;
+   bottom: 0;
+   float: left;
+    position: relative;
     
 }
 
@@ -123,6 +124,11 @@ p{
     padding-left: 80;
     padding-top: 80;
 }
+
+.main-layer{
+ 
+}
+
 
 /* 
 for animate buttons
