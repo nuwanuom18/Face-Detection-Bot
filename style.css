@@ -36,6 +36,7 @@ canvas{
     
     padding-top: 80;
     float: left;
+    
    
 }
 video{
@@ -53,6 +54,31 @@ video{
 
 h1{
     text-align: center;
+    font-family: cursive;
+    font-size: 30;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+/*
+animations to the text in h1
+*/
+
+.ml12 {
+  
+  font-weight: 10000;
+  
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
 }
 
 @media all and (max-width: 500px){
@@ -101,24 +127,28 @@ p{
 
 .details{
   width: 720;
-  padding-top: 50;
-    font-size: 15;
+  margin-top: 50;
+  padding-top: 30;
+  padding-left: 20;
+  padding-right: 20;
+  padding-bottom: 20;
+  font-size: 15;
+  background-image: url('/img/Midnight\ City.jpg');
+  
     
 }
 
-.footer {
-    padding-top: 8;
-    position: absolute;
-    top: 700;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #a0a3a1;
-    color: white;
-    text-align: center;
- }
+.details p{
+  color: rgb(229, 245, 138);
+}
 
+.details h1{
+  color: rgb(190, 126, 126);
+}
 
+.details a{
+  color: rgb(190, 126, 126);
+}
 
 .text-danger{
     color: #bb0b0b;
@@ -130,8 +160,48 @@ p{
   padding-top: 50;
 }
 
+.face-rec{
+  margin-top: 80;
+  padding-left: 20;
+  padding-top: 20;
+  padding-right: 20;
+  background-image: url('/img/Pinot\ Noir.jpg');
+}
 
+.face-rec h1{
+  color: white;
+}
 
+.face-rec h2{
+  padding-top: 20;
+  padding-bottom: 20;
+  font-size: 15;
+  color: white;
+}
+.face-rec img{
+  width: 500;
+}
+.face-rec p{
+  color: rgb(163, 10, 10);
+}
+
+.face-rec a{
+  color: #5c0f3c;
+}
+.tools{
+}
+
+.des-wo{
+  padding-left: 10;
+  padding-right: 10;
+  padding-top: 20;
+  background-image: url('/img/Bloody\ Mary.jpg');
+  padding-bottom: 20;
+}
+
+.des-wo p{
+  color: white;
+}
 /* 
 for animate buttons
 */
@@ -218,21 +288,7 @@ for animate buttons
     }
   }
   
-/*
-animations to the text in h1
-*/
 
-.ml12 {
-    font-weight: 1000;
-    font-size: 30;
-    text-transform: uppercase;
-    letter-spacing: 0.5em;
-  }
-  
-  .ml12 .letter {
-    display: inline-block;
-    line-height: 1em;
-  }
 
 /*
 add styles for the social media items
