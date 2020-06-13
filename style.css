@@ -165,7 +165,7 @@ p{
   padding-left: 20;
   padding-top: 20;
   padding-right: 20;
-  background-image: url('/img/Pinot\ Noir.jpg');
+  background-image: url('/img/Moss.jpg');
 }
 
 .face-rec h1{
@@ -182,11 +182,11 @@ p{
   width: 500;
 }
 .face-rec p{
-  color: rgb(163, 10, 10);
+  color: rgb(64, 219, 219);
 }
 
 .face-rec a{
-  color: #5c0f3c;
+  color: rgb(229, 245, 138);
 }
 .tools{
 }
