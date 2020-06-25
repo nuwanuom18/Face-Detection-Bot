@@ -134,7 +134,7 @@ if (navigator.getUserMedia) {
 
                
                
-            }, 100 // acync function
+            }, 300 // acync function
          
            ) // can use multiple times
          };

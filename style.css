@@ -98,7 +98,7 @@ animations to the text in h1
       
   }
 }
-@media all and (max-width: 77.8mm){
+@media all and (max-width: 375mm){
   .des{
     display: none;
   }
