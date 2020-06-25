@@ -104,11 +104,11 @@ animations to the text in h1
   }
   .btns{
 
-    float: left;
+    float: right;
   }
     video{
-        width: 54mm;
-        height: 42mm;
+        width: 42mm;
+        height: 54mm;
     }
     canvas{
         width: 54mm;
